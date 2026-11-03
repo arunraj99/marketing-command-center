@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f2f4f7;
+  --surface: #ffffff;
+  --surface-2: #f7f9fb;
+  --line: #dde3ea;
+  --ink: #111a24;
+  --muted: #5a6676;
+  --faint: #8692a1;
+  --accent: #0e5a5a;
+  --accent-hover: #0a4848;
+  --accent-ink: #ffffff;
+  --accent-soft: #e2efee;
+  --accent-text: #0e5a5a;
+
+  --ok: #1d7044;
+  --ok-soft: #e4f3ea;
+  --warn: #8f5b00;
+  --warn-soft: #fcf1dc;
+  --bad: #b42318;
+  --bad-soft: #fdeceb;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0c1116;
+  --surface: #131a21;
+  --surface-2: #18212a;
+  --line: #26323e;
+  --ink: #e4e9ef;
+  --muted: #9aa6b4;
+  --faint: #6c7988;
+  --accent: #2b8f8a;
+  --accent-hover: #34a39d;
+  --accent-ink: #ffffff;
+  --accent-soft: #123333;
+  --accent-text: #5cc4bd;
+
+  --ok: #4cc287;
+  --ok-soft: #10291c;
+  --warn: #f0b44c;
+  --warn-soft: #2e2210;
+  --bad: #f2786d;
+  --bad-soft: #351513;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-canvas: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-text: var(--accent-text);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-canvas text-ink font-sans antialiased;
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+}
